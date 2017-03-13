@@ -7,7 +7,7 @@ two main files
 
 Edit the ip address and ports within the client and server before using. 
 
-I am currently adding modules but they are not being use yet. 
+I am currently adding modules but they are not being used yet. 
 
 usage
 command line run >>> python ServerTCPreverseShell.py
