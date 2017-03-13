@@ -97,25 +97,6 @@ now go to your desktop and rename test.txt to ClientShell.zip
 Works for me and will work for you!!!
 
 
-to help with the project fork project and add a new branch. I will merge the requests. 
-https://code.tutsplus.com/articles/team-collaboration-with-github--net-29876
-$ git clone [ssh-url] [folder-name]
-$ cd [folder-name]
-$ git checkout -b [new-feature]
-$ git add .
-$ git commit -m "information added in readme"
-$ git checkout master
-e will push the branch to the remote repository. For this we will first check the branch name with the new feature as well as the git
-remote repository aliases. Then we will push the changes using
-$git push [git-remote-alias] [branch-name]:
-$ git branch
-* master
-readme
-$ git remote -v
-origin  git@github.com:[forked-repo-owner-username]/[repo-name].git (fetch)
-origin  git@github.com:[forked-repo-owner-username]/[repo-name].git (push)
-$ git push origin readme
-
 
 
 

